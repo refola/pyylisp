@@ -15,11 +15,11 @@ var (
 
 func init() {
 	var err error
-	examplelisp, err = ioutil.ReadFile("example.lisp")
+	examplelisp, err = ioutil.ReadFile("tests/example.lisp")
 	if err != nil {
 		panic()
 	}
-	examplepyylisp, err = ioutil.ReadFile("example.pyylisp")
+	examplepyylisp, err = ioutil.ReadFile("tests/example.pyylisp")
 	if err != nil {
 		panic()
 	}
