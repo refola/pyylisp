@@ -15,13 +15,22 @@ var (
 
 func init() {
 	var err error
-	examplelisp, err = ioutil.ReadFile("tests/example.lisp")
-	if err != nil {
-		panic()
+	var b []byte
+
+	lispfile := "tests/example.lisp"
+	b, err = ioutil.ReadFile(lispfile)
+	if err == nil {
+		examplelisp = string(b)
+	} else {
+		panic("Could not read file: " + lispfile)
 	}
-	examplepyylisp, err = ioutil.ReadFile("tests/example.pyylisp")
-	if err != nil {
-		panic()
+
+	pyylispfile := "tests/example.pyylisp"
+	b, err = ioutil.ReadFile(pyylispfile)
+	if err == nil {
+		examplepyylisp = string(b)
+	} else {
+		panic("Could not read file: " + pyylispfile)
 	}
 }
 
@@ -44,11 +53,19 @@ func TestParsePyylisp(t *testing.T) {
 }
 
 func TestLispToPyylispAndBack(t *testing.T) {
-	pl := ParseLisp(examplelisp).Pyylisp()
+	parsed, err := ParseLisp(examplelisp)
+	if err != nil {
+		t.Errorf("Error generating syntax tree: %s", err)
+	}
+	pl := parsed.Pyylisp(0)
 	if pl != examplepyylisp {
 		t.Log("Generated Pyylisp doesn't match file.")
 	}
-	l := ParsePyylisp(pl).Lisp()
+	parsed, err = ParsePyylisp(pl)
+	if err != nil {
+		t.Errorf("Error generating syntax tree: %s", err)
+	}
+	l := parsed.Lisp(0)
 	if l != examplelisp {
 		t.Error("Converting back to Lisp failed.")
 	}
