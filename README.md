@@ -1,4 +1,7 @@
 # pyylisp
+NOTE: This project in its current state is abandoned. Please see [Pyylisp.py](https://github.com/refola/pyylisp.py) for progress on making a Python-integrated version of Lisp with Python-like indentation-based grouping of code.
+-
+
 Program Lisp in a Python-like style.
 
 I really want to learn Lisp (the macros, as much as I don't understand them, sound *extremely* useful), but all those parentheses are distracting. Also, I think a function's name should be after the first argument, in the "object-oriented" style. Knowing neither Lisp nor Python, I think what I'm describing is essentially a Python-style isomorphism of Lisp. Thus I think I can write a program to convert between styles, write Lisp in the "Python" style, use the program to convert to regular style, and then run it as Lisp.
