@@ -1,5 +1,5 @@
 # pyylisp
-NOTE: This project in its current state is abandoned. Please see [Pyylisp.py](https://github.com/refola/pyylisp.py) for progress on making a Python-integrated version of Lisp with Python-like indentation-based grouping of code.
+NOTE: This project in its current state is abandoned. Please see [piklisp.py](https://github.com/refola/piklisp.py) for (abandoned as of mid 2015) progress on making a Python-integrated version of Lisp with Python-like indentation-based grouping of code. Also see [piklisp.go](https://github.com/refola/piklisp.go) for a new (as of 2015-11-14) experimental Go-integrated Lisp that I'm trying to make for the learning experience.
 -
 
 Program Lisp in a Python-like style.
